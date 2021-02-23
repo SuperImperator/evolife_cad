@@ -38,7 +38,7 @@ if($permCheck == false OR !isset($_GET['vid'])){
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="channel">Kennzeichen</label>
-                                <input type="text" class="form-control" name="vrm" value="<?php echo $vehicleInfo['vrm']; ?>" disabled>
+                                <input type="text" class="form-control" name="vrm" value="<?php echo $vehicleInfo['plate']; ?>" disabled>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="channel">Besitzer</label>
