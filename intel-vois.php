@@ -79,7 +79,7 @@ if($permCheck == false){
 
                                 foreach($vehicles as $vehicle){
                                 ?>
-                                <option value="<?php echo $vehicle['vehicleid']; ?>"><?php echo $vehicle['vehicle']; ?> - <?php echo $vehicle['plate']; ?></option>
+                                <option value="<?php echo $vehicle['vehicleid']; ?>"><?php echo $vehicle['owner']; ?> - <?php echo $vehicle['plate']; ?></option>
                                 <?php
                                 }
                                 ?>
