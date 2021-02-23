@@ -15,7 +15,7 @@ if($permCheck == false OR !isset($_GET['vid'])){
 ?>
 
 
-<title>EVOLIFE - Kennzeichensuche: <?php echo $vehicleInfo['vrm']; ?></title>
+<title>EVOLIFE - Kennzeichensuche: <?php echo $vehicleInfo['plate']; ?></title>
 
 
 <div class="container-fluid" style="margin-top: 25px;">
@@ -24,7 +24,7 @@ if($permCheck == false OR !isset($_GET['vid'])){
         <div class="col-md-8">
             <div class="card custom-card">
                 <div class="card-header">
-                    Kennzeichensuche: <?php echo $vehicleInfo['vrm']; ?>
+                    Kennzeichensuche: <?php echo $vehicleInfo['plate']; ?>
                 </div>
                 <div class="card-body">
                         <div class="row">
