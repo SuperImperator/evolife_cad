@@ -15,7 +15,7 @@ if($permCheck == false OR !isset($_GET['vid'])){
 ?>
 
 
-<title>PDRP Network - Edit Licenced Drivers: <?php echo $vehicleInfo['vrm']; ?></title>
+<title>EVOLIFE - Lizenzierte Fahrer bearbeiten <?php echo $vehicleInfo['vrm']; ?></title>
 
 <div class="container-fluid" style="margin-top: 25px;">
     <div class="row">
@@ -23,27 +23,27 @@ if($permCheck == false OR !isset($_GET['vid'])){
         <div class="col-md-8">
             <div class="card custom-card">
                 <div class="card-header">
-                    Edit Licenced Drivers: <?php echo $vehicleInfo['vrm']; ?>
+                    Lizenzierte Fahrer bearbeiten: <?php echo $vehicleInfo['vrm']; ?>
                 </div>
                 <div class="card-body">
                     <?php
-                        if(isset($_POST['updateAllowed'])) { 
+                        if(isset($_POST['updateAllowed'])) {
 
                             $query    = $con->query( "SELECT * FROM civilians" );
                             $civs = '';
 
                             while( $array = mysqli_fetch_assoc($query) ) {
-                    
+
                                 if( isset($_POST['civ-' . $array['civid']]) ) {
-                            
+
                                     $civs .= $array['civid'] . ",";
 
                                 }
                             }
-                    
-                            $query = $con->query("UPDATE vehicles SET registered_drivers = '{$civs}' WHERE vehicleid = '{$_GET['vid']}'");
+
+                            $query = $con->query("UPDATE owned_vehicles SET registered_drivers = '{$civs}' WHERE vehicleid = '{$_GET['vid']}'");
                     ?>
-                        <div class="alert alert-success"><b>Vehicle Updated</b> The vehicle has been updated.</div>
+                        <div class="alert alert-success"><b>Fahrzeug aktualisiert</b> Das Fahrzeug wurde aktualisiert.</div>
                     <?php
                     echo '<meta http-equiv="refresh" content="0; url=civilian-vehicles.php" />';
                         }
@@ -58,7 +58,7 @@ if($permCheck == false OR !isset($_GET['vid'])){
                             }
                         ?><br>
                         <div class="form-group" style="width: 100%;">
-                            <input type="submit" name='updateAllowed' class="btn btn-success btn-block" value="Update Allowed Drivers">
+                            <input type="submit" name='updateAllowed' class="btn btn-success btn-block" value="Zulässige Fahrer aktualisieren">
                         </div>
                     </form>
                 </div>

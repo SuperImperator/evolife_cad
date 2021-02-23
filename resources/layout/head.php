@@ -57,12 +57,12 @@ $UserArray = getUserInfo($sessionArray['user_id']);
 							DISPATCH
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="./control-operator.php">Call Overview</a>
+							<a class="dropdown-item" href="./control-operator.php">Anruf Übersicht</a>
 							<?php
 								$permCheck = haveGeneralPerm($UserArray['userid'], 4);
 								if($permCheck == true){
 							?>
-							<a class="dropdown-item" href="./control-dispatcher.php">Assign Calls</a>
+							<a class="dropdown-item" href="./control-dispatcher.php">Anrufe zuweisen</a>
 							<?php
 								}
 							?>
@@ -70,7 +70,7 @@ $UserArray = getUserInfo($sessionArray['user_id']);
 								$permCheck = haveGeneralPerm($UserArray['userid'], 8);
 								if($permCheck == true){
 							?>
-							<a class="dropdown-item" href="./control-tacad.php">Dismiss Calls</a>
+							<a class="dropdown-item" href="./control-tacad.php">Anrufe Ablehnen</a>
 							<?php
 								}
 							?>
@@ -89,8 +89,8 @@ $UserArray = getUserInfo($sessionArray['user_id']);
 							CIVILIAN
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="./civilian-civs.php">Create Civilian</a>
-							<a class="dropdown-item" href="./civilian-vehicles.php">Create Vehicle</a>
+							<a class="dropdown-item" href="./civilian-civs.php">Zivilisten erstellen</a>
+							<a class="dropdown-item" href="./civilian-vehicles.php">Fahrzeug erstellen</a>
 						</div>
 					</li>
 					<?php
@@ -106,8 +106,8 @@ $UserArray = getUserInfo($sessionArray['user_id']);
 							BOLO
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="./intel-pois.php">Persons of Interest</a>
-							<a class="dropdown-item" href="./intel-vois.php">Vehicles of Interest</a>
+							<a class="dropdown-item" href="./intel-pois.php">Personen von Interesse</a>
+							<a class="dropdown-item" href="./intel-vois.php">Fahrzeuge von Interesse</a>
 						</div>
 					</li>
 					<?php
@@ -123,10 +123,10 @@ $UserArray = getUserInfo($sessionArray['user_id']);
 							REPORTS
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="./cad-reports.php">Submit a Incident Report</a>
-							<a class="dropdown-item" href="./phone999.php">Submit 911 Call Report</a>
-							<a class="dropdown-item" href="./intel-cad-reports.php">Incident Report Log</a>
-							<a class="dropdown-item" href="./cad-history.php">Call Report Log</a>
+							<a class="dropdown-item" href="./cad-reports.php">Senden Sie einen Vorfallbericht</a>
+							<a class="dropdown-item" href="./phone999.php">911 Anrufbericht senden</a>
+							<a class="dropdown-item" href="./intel-cad-reports.php">Ereignisberichtsprotokoll</a>
+							<a class="dropdown-item" href="./cad-history.php">Berichtsprotokoll aufrufen</a>
 						</div>
 					</li>
 					<?php
@@ -143,8 +143,8 @@ $UserArray = getUserInfo($sessionArray['user_id']);
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="./signOn.php">Go On Duty</a>
-							<a class="dropdown-item" href="./pnc-check-search.php">Civilian Lookup</a>
-							<a class="dropdown-item" href="./vrm-check-search.php">License Plate Lookup</a>
+							<a class="dropdown-item" href="./pnc-check-search.php">Person Suchen</a>
+							<a class="dropdown-item" href="./vrm-check-search.php">Kennzeichen Suchen</a>
 						</div>
 					</li>
 					<?php
@@ -160,14 +160,14 @@ $UserArray = getUserInfo($sessionArray['user_id']);
 							ADMIN
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="./manage-users.php">Manage Accounts</a>
-							<a class="dropdown-item" href="./newUser.php">New Account</a>
+							<a class="dropdown-item" href="./manage-users.php">Konten verwalten</a>
+							<a class="dropdown-item" href="./newUser.php">Neues Konto erstellen</a>
 							<hr>
 							<?php
 							if(haveGeneralPerm($UserArray['userid'], 1024) == true){
 							?>
-							<a class="dropdown-item panic" href="./admin-logs.php">View Logs</a>
-							<a class="dropdown-item panic" href="./admin-groups.php">View Groups</a>
+							<a class="dropdown-item panic" href="./admin-logs.php">Protokolle anzeigen</a>
+							<a class="dropdown-item panic" href="./admin-groups.php">Gruppen anzeigen</a>
 							<?php
 							}
 							?>
@@ -183,9 +183,9 @@ $UserArray = getUserInfo($sessionArray['user_id']);
 							<?php echo strtoupper($UserArray['collar']); ?>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="./profile.php">Profile</a>
-							<a class="dropdown-item" href="./user-settings.php">Settings</a>
-							<a class="dropdown-item" href="./signOut.php">Sign Out</a>
+							<a class="dropdown-item" href="./profile.php">Profil</a>
+							<a class="dropdown-item" href="./user-settings.php">Einstellungen</a>
+							<a class="dropdown-item" href="./signOut.php">Abmelden</a>
 						</div>
 					</li>
       			</ul>

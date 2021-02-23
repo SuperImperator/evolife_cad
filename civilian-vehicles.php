@@ -14,27 +14,27 @@ if($permCheck == false){
 	$vehicles = getVehicles();
 ?>
 
-<title>PDRP Network - Manage Vehicles</title>
+<title>EVOLIFE - Fahrzeuge Suchen</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
 	<div class="row">
 		<div class="col-md-9">
 			<div class="card custom-card">
 				<div class="card-header">
-					Existing Vehicles
+					Regsitrierte Fahrzeuge
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
-   							<th scope="col">Reference</th>
-   							<th scope="col">Vehicle</th>
-	     					<th scope="col">License Plate</th>
-   							<th scope="col">Owner</th>
-   							<th scope="col">Insured</th>
-   							<th scope="col">Insurer</th>
-   							<th scope="col">Insurance Number</th>
-   							<th scope="col">Tags</th>
-   							<th scope="col">Allowed Driver</th>
+   							<th scope="col">Referenz</th>
+   							<th scope="col">Fahrzeug</th>
+	     					<th scope="col">Kennzeichen</th>
+   							<th scope="col">Besitzer</th>
+   							<th scope="col">Versichert</th>
+   							<th scope="col">Versicherer</th>
+   							<th scope="col">Versicherungsnummer</th>
+   							<th scope="col">Stichworte</th>
+   							<th scope="col">Erlaubter Fahrer</th>
  						</tr>
 					</thead>
 	  				<tbody>
@@ -56,7 +56,7 @@ if($permCheck == false){
 
 	      					foreach($allowed_drivers as $driver){
 	      					?>
-    						<a href="pnc-check.php?cid=<?php echo $driver['civid']; ?>"><?php echo $driver['name']; ?></a>, 
+    						<a href="pnc-check.php?cid=<?php echo $driver['civid']; ?>"><?php echo $driver['name']; ?></a>,
     						<?php
     						}
     						?>
@@ -72,28 +72,28 @@ if($permCheck == false){
 		<div class="col-md-3">
 			<div class="card custom-card">
 				<div class="card-header">
-					Create Vehicle
+					Vehicle erstellen
 				</div>
 				<div class="card-body">
 					<?php
-						if(isset($_POST['createVehicle'])) { 
+						if(isset($_POST['createVehicle'])) {
 			  	  			createVehicle($UserArray['userid'],$_POST['name'],$_POST['vrm'],$_POST['owner'],$_POST['status'],$_POST['insurer'],$_POST['markers']);
                     ?>
-                    <div class="alert alert-success"><b>Vehicle Created</b> This vehicle has been created and is ready for use.</div>
+                    <div class="alert alert-success"><b>Fahrzeug erstellt</b> Dieses Fahrzeug wurde erstellt und ist einsatzbereit.</div>
                     <?php
 						}
 					?>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 						<div class="form-group col-md-12">
-    						<label for="channel">Vehicle Type and Model (Example: Toyota, Honda Civic)</label>
+    						<label for="channel">Fahrzeugtyp und -modell (Beispiel: Toyota, Honda Civic)</label>
     						<input type="text" class="form-control" name="name" required>
   						</div>
                         <div class="form-group col-md-12">
-                            <label for="channel">License Plate (Example: ASD 4456)</label>
+                            <label for="channel">Nummernschild (Beispiel: ASD 4456)</label>
                             <input type="text" class="form-control" name="vrm" required>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Vehicle Owner</label>
+                            <label for="channel">Fahrzeughalter</label>
                             <select name="owner" class="form-control">
                                 <?php
                                 $civs = getCivs();
@@ -107,27 +107,27 @@ if($permCheck == false){
                             </select>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Coverage</label>
+                            <label for="channel">Abdeckung</label>
                             <select class="form-control" name="status" required>
-							<option value="Insured">Insured</option>
-							<option value="Not Insured">Uninsured</option>
-							<option value="Not Insured">Stolen</option>
+							<option value="Insured">Versichert</option>
+							<option value="Not Insured">Unversichert</option>
+							<option value="Not Insured">Gestohlen</option>
 							</select>
                         </div>
-						
+
                         <div class="form-group col-md-12">
-                            <label for="channel">Insurance Provider</label>
+                            <label for="channel">Versicherer</label>
                             <input type="text" class="form-control" name="insurer" required>
                         </div>
-						
+
                         <div class="form-group col-md-12">
-                            <label for="channel">Tags</label>
+                            <label for="channel">Stichworte</label>
                             <select class="form-control" name="markers" required>
-							<option value="Expired">Expired</option>
-							<option value="Not Expired">Not Expired</option>
+							<option value="Expired">Abgelaufen</option>
+							<option value="Not Expired">Nicht abgelaufen</option>
 							</select>
                         </div>
-						
+
   						<div class="form-group" style="width: 100%;">
 							<input type="submit" name='createVehicle' class="btn btn-success btn-block" value="Create Vehicle">
 						</div>
@@ -137,12 +137,12 @@ if($permCheck == false){
 		</div>
 	</div>
 
-<script> 
-function refreshDiv() { 
+<script>
+function refreshDiv() {
 
     $('#refreshDiv').load(document.URL +  ' #refreshDiv');
 
-} 
+}
 
 function availableUnits(){
 	$('#availableUnits').load(document.URL +  ' #availableUnits');

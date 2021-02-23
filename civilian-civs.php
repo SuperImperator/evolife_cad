@@ -14,24 +14,24 @@ if($permCheck == false){
 	$civs = getCivs();
 ?>
 
-<title>PDRP Network - Manage Civilians</title>
+<title>EVOLIFE - Zivilisten verwalten</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
 	<div class="row">
 		<div class="col-md-9">
 			<div class="card custom-card">
 				<div class="card-header">
-					Existing Civilian
+					Bestehender Zivilist
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
-   							<th scope="col">Reference</th>
+   							<th scope="col">Referenz</th>
    							<th scope="col">Name</th>
-	     					<th scope="col">Date of Birth</th>
-   							<th scope="col">Address</th>
-   							<th scope="col">Criminal Record</th>
-   							<th scope="col">Owned Vehicles</th>
+	     					<th scope="col">Geburtsdatum</th>
+   							<th scope="col">Adresse</th>
+   							<th scope="col">Vorstrafenregister</th>
+   							<th scope="col">Eigene Fahrzeuge</th>
  						</tr>
 					</thead>
 	  				<tbody>
@@ -50,7 +50,7 @@ if($permCheck == false){
 
 	      					foreach($vehicles as $vehicle){
 	      					?>
-    						<a href="vrm-check.php?vid=<?php echo $vehicle['vehicleid']; ?>"><?php echo $vehicle['vrm']; ?></a>, 
+    						<a href="vrm-check.php?vid=<?php echo $vehicle['vehicleid']; ?>"><?php echo $vehicle['vrm']; ?></a>,
     						<?php
     						}
     						?>
@@ -66,14 +66,14 @@ if($permCheck == false){
 		<div class="col-md-3">
 			<div class="card custom-card">
 				<div class="card-header">
-					Create Civilian
+					Zivilisten erstellen
 				</div>
 				<div class="card-body">
 					<?php
-						if(isset($_POST['createCiv'])) { 
+						if(isset($_POST['createCiv'])) {
 			  	  			createCiv($UserArray['userid'],$_POST['name'],$_POST['dob'],$_POST['address']);
                     ?>
-                    <div class="alert alert-success"><b>Civilian Created</b> This civilian has been created and is ready for use.</div>
+                    <div class="alert alert-success"><b>Zivilist erstellt</b> Dieser Zivilist wurde erstellt und ist einsatzbereit.</div>
                     <?php
 						}
 					?>
@@ -83,15 +83,15 @@ if($permCheck == false){
     						<input type="text" class="form-control" name="name" required>
   						</div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Date Of Birth</label>
+                            <label for="channel">Geburtsdatum</label>
                             <input type="date" class="form-control" name="dob" required>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Address</label>
+                            <label for="channel">Adresse</label>
                             <input type="text" class="form-control" name="address" required>
                         </div>
   						<div class="form-group" style="width: 100%;">
-							<input type="submit" name='createCiv' class="btn btn-success btn-block" value="Create Civilian">
+							<input type="submit" name='createCiv' class="btn btn-success btn-block" value="Zivilisten erstellen">
 						</div>
 					</form>
 				</div>
@@ -99,12 +99,12 @@ if($permCheck == false){
 		</div>
 	</div>
 
-<script> 
-function refreshDiv() { 
+<script>
+function refreshDiv() {
 
     $('#refreshDiv').load(document.URL +  ' #refreshDiv');
 
-} 
+}
 
 function availableUnits(){
 	$('#availableUnits').load(document.URL +  ' #availableUnits');

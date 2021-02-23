@@ -15,7 +15,7 @@ if($permCheck == false OR !isset($_GET['cid'])){
 ?>
 
 
-<title>PDRP Network - Civilian Lookup: <?php echo $civInfo['name']; ?></title>
+<title>EVOLIFE - Zivile Suche: <?php echo $civInfo['name']; ?></title>
 
 <div class="container-fluid" style="margin-top: 25px;">
     <div class="row">
@@ -23,28 +23,28 @@ if($permCheck == false OR !isset($_GET['cid'])){
         <div class="col-md-8">
             <div class="card custom-card">
                 <div class="card-header">
-                    Civilian Lookup:  <?php echo $civInfo['name']; ?>
+                    Zivile Suche:  <?php echo $civInfo['name']; ?>
                 </div>
                 <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="channel">Persons Name</label>
+                                <label for="channel">Name einer Person</label>
                                 <input type="text" class="form-control" name="name" value="<?php echo $civInfo['name']; ?>" disabled>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="channel">Date of Birth</label>
+                                <label for="channel">Geburtsdatum</label>
                                 <input type="text" class="form-control" name="vrm" value="<?php echo $civInfo['dob']; ?>" disabled>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="channel">Address</label>
+                                <label for="channel">Adresse</label>
                                 <input type="text" class="form-control" name="vrm" value="<?php echo $civInfo['address']; ?>" disabled>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="channel">Criminal Record</label>
+                                <label for="channel">Vorstrafenregister</label>
                                 <input type="text" class="form-control" name="insurer" value="<?php echo $civInfo['markers']; ?>" disabled>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="channel">Owned Vehicles</label>
+                                <label for="channel">Eigene Fahrzeuge</label>
                                 <div class="card custom-card">
                                     <div class="card-body">
                                         <?php

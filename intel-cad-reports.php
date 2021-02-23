@@ -15,7 +15,7 @@ if($permCheck == false){
 ?>
 
 
-<title>PDRP Network - View Incident Reports</title>
+<title>EVOLIFE- Anzeigen von Ereignisberichten</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
 	<div class="row">
@@ -23,16 +23,16 @@ if($permCheck == false){
 		<div class="col-md-8">
 			<div class="card custom-card">
 				<div class="card-header">
-					View Incident Reports
+					Anzeigen von Ereignisberichten
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
-   							<th scope="col">Reference</th>
-   							<th scope="col">Submitted By</th>
-	     					<th scope="col">Incident Reference</th>
-   							<th scope="col">Date</th>
-                <th scope="col">Actions</th>
+   							<th scope="col">Referenz</th>
+   							<th scope="col">Eingereicht von</th>
+	     					<th scope="col">Vorfallreferenz</th>
+   							<th scope="col">Datum</th>
+                <th scope="col">Aktion</th>
  						</tr>
 					</thead>
 	  				<tbody>
@@ -44,7 +44,7 @@ if($permCheck == false){
     						<th><?php echo getUserInfo($report['user'])['first_name'] . " " . getUserInfo($report['user'])['surname']; ?></th>
     						<th><?php echo $report['cad']; ?></th>
     						<td><?php echo date('d\/m\/Y \a\t G\:i', $report['dateline']); ?></td>
-	      				<td><a href="./intel-view-report.php?rid=<?php echo $report['id']; ?>">Read More</a></td>
+	      				<td><a href="./intel-view-report.php?rid=<?php echo $report['id']; ?>">Mehr Lesen</a></td>
     					</tr>
     					<?php
     					}
@@ -55,12 +55,12 @@ if($permCheck == false){
 		</div>
 	</div>
 
-<script> 
-function refreshDiv() { 
+<script>
+function refreshDiv() {
 
     $('#refreshDiv').load(document.URL +  ' #refreshDiv');
 
-} 
+}
 
 function availableUnits(){
 	$('#availableUnits').load(document.URL +  ' #availableUnits');

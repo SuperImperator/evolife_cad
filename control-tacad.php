@@ -26,7 +26,7 @@ if($permCheck == false){
 ?>
 
 
-<title>PDRP Network - Dismiss Call</title>
+<title>EVOLIFE - Anruf abweisen</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
 	<div id="panicSection">
@@ -41,7 +41,7 @@ if($permCheck == false){
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="alert alert-danger state0" style="text-align: center;">
-					<b>Panic Button Activation by <?php echo $unit['unit']; ?> (<?php echo $unit['collar']; ?>)</b><br><i>
+					<b>Panic Button Aktivierung durch: <?php echo $unit['unit']; ?> (<?php echo $unit['collar']; ?>)</b><br><i>
 				</div>
 			</div>
 		</div>
@@ -54,7 +54,7 @@ if($permCheck == false){
 		<div class="col-md-10">
 			<div class="card custom-card">
 				<div class="card-body" style="padding: 5px !important;">
-					<a href="#" data-toggle="modal" data-target="#endShift">End Shift</a> | <a href="#" data-toggle="modal" data-target="#sendGlobalMessage">Send Global Message</a>
+					<a href="#" data-toggle="modal" data-target="#endShift">Schicht beenden</a> | <a href="#" data-toggle="modal" data-target="#sendGlobalMessage">Globale Nachricht senden</a>
 				</div>
 			</div>
 		</div>
@@ -65,18 +65,18 @@ if($permCheck == false){
 		<div class="col-md-4">
 			<div class="card custom-card">
 				<div class="card-header">
-					<a href="#" onclick="toggleDiv('editCAD')"><i class="fa fa-plus"></i></a> 
-					Dismiss Call
+					<a href="#" onclick="toggleDiv('editCAD')"><i class="fa fa-plus"></i></a>
+					Anruf abweisen
 				</div>
 				<div class="card-body" id="editCAD">
 					<?php
-					if(isset($_POST['dismissCall'])) { 
+					if(isset($_POST['dismissCall'])) {
 			  	  		updateCallStatus($_POST['cad'], 4);
 					}
 					?>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 						<div class="form-group col-md-12">
-    						<label for="channel">Select Report</label>
+    						<label for="channel">Wählen Sie einen Bericht</label>
     						<div id="cads">
     							<select class="form-control" name="cad">
     								<?php
@@ -90,7 +90,7 @@ if($permCheck == false){
     						</div>
   						</div>
   						<div class="form-group col-md-12">
-  							<input type="submit" name='dismissCall' class="btn btn-success btn-block" value="Dismiss Call">
+  							<input type="submit" name='dismissCall' class="btn btn-success btn-block" value="Anruf abweisen">
   						</div>
   					</form>
 				</div>
@@ -118,7 +118,7 @@ if($permCheck == false){
 		<div class="col-md-3">
 			<div class="card custom-card">
 				<div class="card-header">
-					Recent Logs
+					Letzte Protokolle
 				</div>
 				<table class="table table-responsive-xl" id="refreshLogs">
 					<tbody>
@@ -140,7 +140,7 @@ if($permCheck == false){
 		<div class="col-md-3">
 			<div class="card custom-card">
 				<div class="card-header">
-					<a data-toggle="modal" data-target="#sendMessage"><i class="fa fa-comment-alt"></i></a> 
+					<a data-toggle="modal" data-target="#sendMessage"><i class="fa fa-comment-alt"></i></a>
 					Recent Messages
 				</div>
 				<table class="table table-responsive-xl" id="refreshMessages">
@@ -165,32 +165,32 @@ if($permCheck == false){
 	<?php
 	foreach($calls as $call){
 		$continue = false;
-		
+
 	?>
 
 	<div class="modal fade" id="updateCall<?php echo $call['callid']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   		<div class="modal-dialog" role="document">
     		<div class="modal-content" style="margin-top: 100px;">
       			<div class="modal-header">
-        			<h5 class="modal-title" id="updateCall<?php echo $call['callid']; ?>">Close Call</h5>
+        			<h5 class="modal-title" id="updateCall<?php echo $call['callid']; ?>">Anruf schließen</h5>
       			</div>
       			<div class="modal-body">
       				<div class="container">
         				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 							<div class="row">
 								<div class="form-group" style="width: 100%;">
-            	    				<input type="submit" name='dismissCall<?php echo $call['callid']; ?>' class="btn btn-danger btn-block" value="Dismiss Call">
+            	    				<input type="submit" name='dismissCall<?php echo $call['callid']; ?>' class="btn btn-danger btn-block" value="Anruf abweisen">
            						</div>
            					</div>
 						</form>
 						<?php
-							if(isset($_POST['assignUnit'.$call['callid']])) { 
+							if(isset($_POST['assignUnit'.$call['callid']])) {
 			  	  				attachUnitToCall($call['callid'], $_POST['unit']);
 							}
-							if(isset($_POST['dismissCall'.$call['callid']])) { 
+							if(isset($_POST['dismissCall'.$call['callid']])) {
 			  	  				updateCallStatus($call['callid'],4);
 							}
-						?> 
+						?>
 					</div>
       			</div>
     		</div>
@@ -206,14 +206,14 @@ if($permCheck == false){
   		<div class="modal-dialog" role="document">
     		<div class="modal-content" style="margin-top: 100px;">
       			<div class="modal-header">
-        			<h5 class="modal-title" id="sendMessage">Send Message</h5>
+        			<h5 class="modal-title" id="sendMessage">Nachricht senden</h5>
       			</div>
       			<div class="modal-body">
       				<div class="container">
         				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 							<div class="row">
 								<div class="form-group col-md-12">
-    								<label for="channel">Select Unit</label>
+    								<label for="channel">Wählen Sie Einheit</label>
     								<select name="unit" class="form-control">
     									<?php
     									foreach($availableUnits as $unit){
@@ -225,19 +225,19 @@ if($permCheck == false){
     								</select>
   								</div>
   								<div class="form-group col-md-12">
-    								<label for="grade">Enter Message</label>
+    								<label for="grade">Nachricht eingeben</label>
     								<input type="text" class="form-control" name="message">
   								</div>
 								<div class="form-group" style="width: 100%;">
-									<input type="submit" name='sendMessage' class="btn btn-success btn-block" value="Send Message">
+									<input type="submit" name='sendMessage' class="btn btn-success btn-block" value="Nachricht senden">
            						</div>
            					</div>
 						</form>
 						<?php
-							if(isset($_POST['sendMessage'])) { 
+							if(isset($_POST['sendMessage'])) {
 			  	  				sendMessage($_POST['unit'], 'CONTROL', $_POST['message']);
 							}
-						?> 
+						?>
 					</div>
       			</div>
     		</div>
@@ -248,22 +248,22 @@ if($permCheck == false){
   		<div class="modal-dialog" role="document">
     		<div class="modal-content" style="margin-top: 100px;">
       			<div class="modal-header">
-        			<h5 class="modal-title" id="endShift">End Shift</h5>
+        			<h5 class="modal-title" id="endShift">Schicht beenden</h5>
       			</div>
       			<div class="modal-body">
       				<div class="container">
         				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 							<div class="row">
 								<div class="form-group" style="width: 100%;">
-            	    				<input type="submit" name='endShift' class="btn btn-danger btn-block" value="End Shift">
+            	    				<input type="submit" name='endShift' class="btn btn-danger btn-block" value="Schicht beenden">
            						</div>
            					</div>
 						</form>
 						<?php
-							if(isset($_POST['endShift'])) { 
+							if(isset($_POST['endShift'])) {
 			  	  				endShift($UserArray['userid']);
 							}
-						?> 
+						?>
 					</div>
       			</div>
     		</div>
@@ -274,41 +274,41 @@ if($permCheck == false){
   		<div class="modal-dialog" role="document">
     		<div class="modal-content" style="margin-top: 100px;">
       			<div class="modal-header">
-        			<h5 class="modal-title" id="endShift">Send Global Message</h5>
+        			<h5 class="modal-title" id="endShift">Globale Nachricht senden</h5>
       			</div>
       			<div class="modal-body">
       				<div class="container">
         				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 							<div class="row">
 								<div class="form-group col-md-12">
-									<label>Global Message</label>
+									<label>Globale Nachricht</label>
 									<textarea class="form-control" name="message"></textarea>
 								</div>
 								<div class="form-group col-md-12">
-            	    				<input type="submit" name='sendGlobalMessage' class="btn btn-danger btn-block" value="Send Global Message">
+            	    				<input type="submit" name='sendGlobalMessage' class="btn btn-danger btn-block" value="Globale Nachricht senden">
            						</div>
            					</div>
 						</form>
 						<?php
-							if(isset($_POST['sendGlobalMessage'])) { 
+							if(isset($_POST['sendGlobalMessage'])) {
 			  	  				sendGlobalMessage($_POST['message']);
 							}
-						?> 
+						?>
 					</div>
       			</div>
     		</div>
   		</div>
 	</div>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 
-function refreshDiv() { 
+function refreshDiv() {
 
     $('#refreshDiv').load(document.URL +  ' #refreshDiv');
     $('#refreshLogs').load(document.URL +  ' #refreshLogs');
     $('#refreshMessages').load(document.URL +  ' #refreshMessages');
     $('#test').load(document.URL +  ' #test');
-} 
+}
 
 function availableUnits(){
 	$('#availableUnits').load(document.URL +  ' #availableUnits');

@@ -18,7 +18,7 @@ if($permCheck == false){
 	}
 ?>
 
-<title>PDRP Network - <?php echo $userInfo['first_name']; ?> <?php echo $userInfo['surname']; ?></title>
+<title>EVOLIFE - <?php echo $userInfo['first_name']; ?> <?php echo $userInfo['surname']; ?></title>
 
 <div class="container" style="margin-top: 25px;">
 	<div class="row">
@@ -37,20 +37,20 @@ if($permCheck == false){
 	                	<table class="table table-responsive-xl" id="refreshDiv">
 	                		<thead class="thead-light">
 	                			<tr>
-	                				<th scope="col" colspan="2">About <?php echo $userInfo['surname']; ?></th>
+	                				<th scope="col" colspan="2">Über <?php echo $userInfo['surname']; ?></th>
 	                			</tr>
 	                		</thead>
 	                		<tbody>
 	                			<tr>
-	                				<td><i class="fa fa-user"></i> <b>UserID:</b></td>
+	                				<td><i class="fa fa-user"></i> <b>Benutzeridentifikation:</b></td>
 	                				<td>#<?php echo $userInfo['userid']; ?></td>
 	                			</tr>
 	                			<tr>
-	                				<td><i class="fa fa-user"></i> <b>Username:</b></td>
+	                				<td><i class="fa fa-user"></i> <b>Benutzername</b></td>
 	                				<td><?php echo $userInfo['collar']; ?></td>
 	                			</tr>
 	                			<tr>
-	                				<td><i class="fa fa-user"></i> <b>Registered:</b></td>
+	                				<td><i class="fa fa-user"></i> <b>Eingetragen:</b></td>
 	                				<td><?php echo date('jS F Y', $userInfo['joindate']); ?></td>
 	                			</tr>
 	                		</tbody>
@@ -71,7 +71,7 @@ if($permCheck == false){
             	}
             	?>
             		<Br>
-            		<div class="alert alert-danger panic" style="text-align: center;"><b>Hey You!</b> Nothing to show here for now;)</div>
+            		<div class="alert alert-danger panic" style="text-align: center;"><b>Hallo du!</b> Im Moment gibt es hier nichts zu zeigen ;)</div>
             	</div>
             	<?php
             	$permCheck = haveGeneralPerm($UserArray['userid'], 256);
@@ -84,12 +84,12 @@ if($permCheck == false){
 	                	<table class="table table-responsive-xl" id="refreshDiv">
 	                		<thead class="thead-light">
 	                			<tr>
-	                				<th scope="col">Quick Links</th>
+	                				<th scope="col">Links</th>
 	                			</tr>
 	                		</thead>
 	                		<tbody>
 	                			<tr>
-	                				<td><i class="fa fa-users"></i> <a href="./editUser.php?uid=<?php echo $userInfo['userid']; ?>" style="color: #212529;">Modify User</a></td>
+	                				<td><i class="fa fa-users"></i> <a href="./editUser.php?uid=<?php echo $userInfo['userid']; ?>" style="color: #212529;">Benutzer ändern</a></td>
 	                			</tr>
 	                		</tbody>
 	                	</table>

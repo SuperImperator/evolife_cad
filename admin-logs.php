@@ -15,7 +15,7 @@ if($permCheck == false){
 ?>
 
 
-<title>PDRP Network - View Logs</title>
+<title>EVOLIFE - Protokolle</title>
 
 
 <div class="container-fluid" style="margin-top: 25px;">
@@ -24,22 +24,22 @@ if($permCheck == false){
 		<div class="col-md-8">
 			<div class="row">
 				<div class="col-md-2">
-					<div class="btn state99 btn-block" onclick="filter('Admin')">Admin Logs</div>
+					<div class="btn state99 btn-block" onclick="filter('Admin')">Admin Protokolle</div>
 				</div>
 				<div class="col-md-2">
-					<div class="btn state97 btn-block" onclick="filter('Session')">Session Logs</div>
+					<div class="btn state97 btn-block" onclick="filter('Session')">Sitzungsprotokolle</div>
 				</div>
 				<div class="col-md-2">
-					<div class="btn state6 btn-block" onclick="filter('Security')">Failed Logins</div>
+					<div class="btn state6 btn-block" onclick="filter('Security')">Anmeldungen fehlgeschlagen</div>
 				</div>
 				<div class="col-md-2">
-					<div class="btn state9 btn-block" onclick="filter('Civilian-Management')">Civilian Logs</div>
+					<div class="btn state9 btn-block" onclick="filter('Civilian-Management')">Zivilprotokolle</div>
 				</div>
 				<div class="col-md-2">
-					<div class="btn state23 btn-block" onclick="filter('Calls')">Call Logs</div>
+					<div class="btn state23 btn-block" onclick="filter('Calls')">Anruflisten</div>
 				</div>
 				<div class="col-md-2">
-					<div class="btn state11 btn-block" onclick="filter('All')">Show All</div>
+					<div class="btn state11 btn-block" onclick="filter('All')">Zeige alles</div>
 				</div>
 			</div>
 		</div>
@@ -50,31 +50,31 @@ if($permCheck == false){
 		<div class="col-md-8">
 			<div class="card custom-card">
 				<div class="card-header">
-					Admin Logs
+					Admin Protokolle
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
-   							<th scope="col">Reference</th>
-                <th scope="col">User</th>
-   							<th scope="col">Type</th>
-	     					<th scope="col">Action</th>
-   							<th scope="col">Dateline</th>
+   							<th scope="col">Referenz</th>
+                <th scope="col">Benutzer</th>
+   							<th scope="col">Art</th>
+	     					<th scope="col">Aktion</th>
+   							<th scope="col">Datum</th>
  						</tr>
 					</thead>
 	  				<tbody>
 	  					<?php
 	  					foreach($logs as $log){
 	  					?>
-    					<tr id="<?php echo preg_replace("/[\s_]/", "-", $log['category']); ?>" 
-    						<?php if($log['category'] == 'Admin'){ ?> class="state99" 
-    						<?php }elseif($log['category'] == 'User Management'){ ?> class="state97" 
-    						<?php }elseif($log['category'] == 'Tag Management'){ ?> class="state7" 
-    						<?php }elseif($log['category'] == 'Security' && substr(getUserInfo($log['user'])['collar'],0,3) == '221'){ ?> class="GCSecurity" 
-    						<?php }elseif($log['category'] == 'Security'){ ?> class="state6" 
-    						<?php }elseif($log['category'] == 'Calls'){ ?> class="state23" 
-    						<?php }elseif($log['category'] == 'Civilian Management'){ ?> class="state9" 
-    						<?php }else{ ?> class="state97" 
+    					<tr id="<?php echo preg_replace("/[\s_]/", "-", $log['category']); ?>"
+    						<?php if($log['category'] == 'Admin'){ ?> class="state99"
+    						<?php }elseif($log['category'] == 'User Management'){ ?> class="state97"
+    						<?php }elseif($log['category'] == 'Tag Management'){ ?> class="state7"
+    						<?php }elseif($log['category'] == 'Security' && substr(getUserInfo($log['user'])['collar'],0,3) == '221'){ ?> class="GCSecurity"
+    						<?php }elseif($log['category'] == 'Security'){ ?> class="state6"
+    						<?php }elseif($log['category'] == 'Calls'){ ?> class="state23"
+    						<?php }elseif($log['category'] == 'Civilian Management'){ ?> class="state9"
+    						<?php }else{ ?> class="state97"
     					<?php } ?>>
     						<th scope="row"><?php echo $log['logid']; ?></th>
     						<th><?php if($log['user'] == 0) { ?>SYSTEM<?php }else{ ?><?php echo getUserInfo($log['user'])['first_name'] . ' ' . getUserInfo($log['user'])['surname']; ?><?php } ?></th>
@@ -91,7 +91,7 @@ if($permCheck == false){
 		</div>
 	</div>
 
-<script> 
+<script>
 function filter(category){
 	if(category == 'All'){
 		$('#admin, #security, #session, #civilian-management, #calls').show();

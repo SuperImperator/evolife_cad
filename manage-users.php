@@ -14,7 +14,7 @@ if($permCheck == false){
 	$users = getUsers();
 ?>
 
-<title>PDRP Network - Manage Users</title>
+<title>EVOLIFE - Benutzer verwalten</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
 	<div class="row">
@@ -22,17 +22,17 @@ if($permCheck == false){
 		<div class="col-md-8">
 			<div class="card custom-card">
 				<div class="card-header">
-					Manage Users
+					Benutzer verwalten
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
-   							<th scope="col">Reference</th>
-   							<th scope="col">Username</th>
+   							<th scope="col">Referenz</th>
+   							<th scope="col">Benutzername</th>
 	     					<th scope="col">Name</th>
    							<th scope="col">Steamid</th>
-   							<th scope="col">Last IP</th>
-                            <th scope="col">Actions</th>
+   							<th scope="col">Letzte IP</th>
+                <th scope="col">Aktionen</th>
  						</tr>
 					</thead>
 	  				<tbody>
@@ -46,7 +46,7 @@ if($permCheck == false){
     						<th><?php echo $user['first_name']; ?>.<?php echo $user['surname']; ?></th>
     						<th><?php echo $user['steamid']; ?></th>
                             <th><?php echo $user['last_ip']; ?></th>
-	      					<td><a href="./editUser.php?uid=<?php echo $user['userid']; ?>">Edit User</a></td>
+	      					<td><a href="./editUser.php?uid=<?php echo $user['userid']; ?>">Benutzer bearbeiten</a></td>
     					</tr>
     					<?php
                             }

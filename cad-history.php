@@ -14,7 +14,7 @@ if($permCheck == false){
 	$cads = getClosedCalls();
 ?>
 
-<title>PDRP Network - Call History</title>
+<title>EVOLIFE - Anruferliste</title>
 
 
 <div class="container-fluid" style="margin-top: 25px;">
@@ -23,15 +23,15 @@ if($permCheck == false){
 		<div class="col-md-8">
 			<div class="card custom-card">
 				<div class="card-header">
-					Call History
+					Anruferliste
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
-   							<th scope="col">Reference</th>
-                			<th scope="col">Type</th>
-   							<th scope="col">Description</th>
-	     					<th scope="col">Location</th>
+   							<th scope="col">Referenz</th>
+                			<th scope="col">Art</th>
+   							<th scope="col">Beschreibung</th>
+	     					<th scope="col">Ort</th>
  						</tr>
 					</thead>
 	  				<tbody>
@@ -53,10 +53,10 @@ if($permCheck == false){
 		</div>
 	</div>
 
-<script> 
-function refreshDiv() { 
+<script>
+function refreshDiv() {
     $('#refreshDiv').load(document.URL +  ' #refreshDiv');
-} 
+}
 
 function availableUnits(){
 	$('#availableUnits').load(document.URL +  ' #availableUnits');

@@ -15,24 +15,24 @@ if($permCheck == false){
 ?>
 
 
-<title>PDRP Network - BOLO (Vehicles of Interest)</title>
+<title>EVOLIFE - BOLO (Fahrzeuge von Interesse)</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
 	<div class="row">
 		<div class="col-md-9">
 			<div class="card custom-card">
 				<div class="card-header">
-					BOLO (Current Vehicles of Interest)
+					BOLO (Fahrzeuge von Interesse)
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
-   							<th scope="col">Reference</th>
-   							<th scope="col">Model</th>
-	     					<th scope="col">License Plate</th>
-   							<th scope="col">Description</th>
-   							<th scope="col">Reason</th>
-   							<th scope="col">Notes</th>
+   							<th scope="col">Referenz</th>
+   							<th scope="col">Modell</th>
+	     					<th scope="col">Kennzeichen</th>
+   							<th scope="col">Beschreibung</th>
+   							<th scope="col">Grund</th>
+   							<th scope="col">Annmerkungen</th>
  						</tr>
 					</thead>
 	  				<tbody>
@@ -59,20 +59,20 @@ if($permCheck == false){
 		<div class="col-md-3">
 			<div class="card custom-card">
 				<div class="card-header">
-					Add BOLO (Vehicle of Interest)
+					BOLO (Fahrzeuge von Interesse) hinzufügen
 				</div>
 				<div class="card-body">
 					<?php
-						if(isset($_POST['createVoi'])) { 
+						if(isset($_POST['createVoi'])) {
 			  	  			createVoi($_POST['vehicle'],$_POST['image'],$_POST['reason'],$_POST['notes']);
                     ?>
-                    <div class="alert alert-success"><b>BOLO Created</b> This BOLO has been created and is ready for use.</div>
+                    <div class="alert alert-success"><b>BOLO erstellt.</b> Dieser BOLO wurde erstellt und ist einsatzbereit.</div>
                     <?php
 						}
 					?>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 						<div class="form-group col-md-12">
-                            <label for="channel">Vehicle</label>
+                            <label for="channel">Fahrzeug</label>
                             <select name="vehicle" class="form-control">
                                 <?php
                                 $vehicles = getVehicles();
@@ -86,19 +86,19 @@ if($permCheck == false){
                             </select>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Description</label>
+                            <label for="channel">Beschreibung</label>
                             <input type="text" class="form-control" name="image">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Reason</label>
+                            <label for="channel">Grund</label>
                             <input type="text" class="form-control" name="reason">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Notes</label>
+                            <label for="channel">Annmerkungen</label>
                             <input type="text" class="form-control" name="notes">
                         </div>
   						<div class="form-group col-md-12">
-							<input type="submit" name='createVoi' class="btn btn-success btn-block" value="Create BOLO">
+							<input type="submit" name='createVoi' class="btn btn-success btn-block" value="Erstellen Sie BOLO">
 						</div>
 					</form>
 				</div>
@@ -106,12 +106,12 @@ if($permCheck == false){
 		</div>
 	</div>
 
-<script> 
-function refreshDiv() { 
+<script>
+function refreshDiv() {
 
     $('#refreshDiv').load(document.URL +  ' #refreshDiv');
 
-} 
+}
 
 function availableUnits(){
 	$('#availableUnits').load(document.URL +  ' #availableUnits');

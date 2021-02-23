@@ -15,24 +15,24 @@ if($permCheck == false){
 
 ?>
 
-<title>PDRP Network - New User</title>
+<title>EVOLIFE - Neuer Benutzer</title>
 
 	<div class="container" style="margin-top: 25px;">
 		<?php
-			if(isset($_POST['createUser'])) { 
+			if(isset($_POST['createUser'])) {
 				$groups = getUserGroups();
 				$ugroups = '';
 				foreach($groups as $group){
-		
+
 					if( isset($_POST['ugroup-' . $group['id']]) ) {
-						
+
 						$ugroups .= $group['id'] . ",";
 					}
 				}
 				$steamid = $con->escape_string($_POST['steamid']);
 				createUser($UserArray['userid'],$_POST['firstname'],$_POST['surname'],$_POST['email'],$_POST['steamid'],$_POST['collar'],$_POST['password'],$ugroups);
 			?>
-			<div class="alert alert-success" role="alert"><b>User Updated</b> This user has been updated.</div>
+			<div class="alert alert-success" role="alert"><b>Benutzer aktualisiert</b> Dieser Benutzer wurde aktualisiert.</div>
 			<?php
 			}
 		?>
@@ -41,16 +41,16 @@ if($permCheck == false){
 				<div class="col-sm-12 col-md-6">
 					<div class="card custom-card">
 						<div class="card-header">
-							Create a new User
+							Erstellen Sie einen neuen Benutzer
 						</div>
 						<div class="card-body">
 							<div class="row">
                             	<div class="form-group col-md-6">
-                                	<label for="channel">First Name</label>
+                                	<label for="channel">Vorname</label>
                                 	<input type="text" class="form-control" name="firstname" required>
                             	</div>
                             	<div class="form-group col-md-6">
-                                	<label for="channel">Last Name</label>
+                                	<label for="channel">Nachname</label>
                                 	<input type="text" class="form-control" name="surname" required>
                             	</div>
                             	<div class="form-group col-md-12">
@@ -62,11 +62,11 @@ if($permCheck == false){
                                 	<input type="email" class="form-control" name="email" required>
                             	</div>
                             	<div class="form-group col-md-12">
-                                	<label for="channel">Username</label>
+                                	<label for="channel">Benutzername</label>
                                 	<input type="text" class="form-control" name="collar" required>
                             	</div>
                             	<div class="form-group col-md-12">
-                                	<label for="channel">Password</label>
+                                	<label for="channel">Passwort</label>
                                 	<input type="password" class="form-control" name="password" required>
                             	</div>
                             </div>
@@ -77,7 +77,7 @@ if($permCheck == false){
 				<div class="col-sm-12 col-md-6">
 					<div class="card custom-card">
 						<div class="card-header">
-							Usergroups
+							Benutzergruppen
 						</div>
 						<div class="card-body">
 							<div class="row">
@@ -100,7 +100,7 @@ if($permCheck == false){
 					<div class="card custom-card">
 						<div class="card-body">
 							<div class="form-group" style="width: 100%;">
-            	           	    <input type="submit" name='createUser' class="btn btn-success btn-block" value="Create User">
+            	           	    <input type="submit" name='createUser' class="btn btn-success btn-block" value="Benutzer erstellen">
                 	        </div>
 						</div>
 					</div>

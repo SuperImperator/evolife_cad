@@ -11,17 +11,17 @@ if($permCheck == false){
 ?>
 
 
-<title>PDRP Network - Incident Report</title>
+<title>EVOLIFE - Vorfallsbericht</title>
 
 <div class="container" style="margin-top: 25px;">
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<div class="card">
-				<div class="card-header"><a href="./cad-history.php" target="_blank" style="position: absolute; right: 10px;">Past Calls</a> Create Incident Report</div>
+				<div class="card-header"><a href="./cad-history.php" target="_blank" style="position: absolute; right: 10px;">Vergangene Anrufe</a> Vorfallbericht erstellen</div>
 				<div class="card-body">
 					<?php
-						if(isset($_POST['submitCADReport'])) { 
+						if(isset($_POST['submitCADReport'])) {
                             $incident = $con->escape_string($_POST['incident']);
                             $cad = $con->escape_string($_POST['cad']);
                             $located = $con->escape_string($_POST['located']);
@@ -33,7 +33,7 @@ if($permCheck == false){
                             $whatHappened = $con->escape_string($_POST['whatHappened']);
                             createCadReport($UserArray['userid'],$incident,$cad,$located,$otherUnits,$arrested,$person,$arrestedFor,$foundItems,$whatHappened);
                     ?>
-                    <div class="alert alert-success"><b>Report Submitted</b> The report is now logged, back to work!</div>
+                    <div class="alert alert-success"><b>Bericht eingereicht</b> Der Bericht ist jetzt protokolliert und nun zurück zur Arbeit!</div>
                     <?php
 						}
 					?>
@@ -42,64 +42,64 @@ if($permCheck == false){
     						<div class="form-group col-sm-12 col-md-6">
         						<label for="channel">Name</label>
     	       					<input type="text" class="form-control" name="username" value="<?php echo $UserArray['first_name'] . ' ' . $UserArray['surname']; ?>" disabled>
-                               <small id="emailHelp" class="form-text text-muted"><I>Your Name (Autofilled)</I></small>
+                               <small id="emailHelp" class="form-text text-muted"><I>Dein Name (Automatisch)</I></small>
   				  	       	</div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Username</label>
+                                <label for="channel">Benutzername</label>
                                 <input type="text" class="form-control" name="collar" value="<?php echo $UserArray['collar']; ?>" disabled>
-                               <small id="emailHelp" class="form-text text-muted"><I>Your Username (Autofilled)</I></small>
+                               <small id="emailHelp" class="form-text text-muted"><I>Dein Benutzername (Automatisch)</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">What type of incident is this report about?</label>
+                                <label for="channel">Um welche Art von Vorfall handelt es sich in diesem Bericht?</label>
                                 <input type="text" class="form-control" name="incident">
-                                <small id="emailHelp" class="form-text text-muted"><I>What type of incident did you attend?.</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>An welcher Art von Vorfall haben Sie teilgenommen?</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">What was the Call Reference?</label>
+                                <label for="channel">Was war die Anrufreferenz?</label>
                                 <input type="text" class="form-control" name="cad">
-                                <small id="emailHelp" class="form-text text-muted"><I>493/28JUN2018</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>493/23FEB2021</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Who else was on the incident?</label>
+                                <label for="channel">Wer war noch an dem Vorfall beteiligt?</label>
                                 <textarea class="form-control" name="otherUnits"></textarea>
-                                <small id="emailHelp" class="form-text text-muted"><I>Lieutenant Smith, Officer Jones, etc...</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>Lieutenant Smith, Officer Jones usw.</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Where did you locate the person or vehicle?</label>
+                                <label for="channel">Wo haben Sie die Person oder das Fahrzeug gefunden?</label>
                                 <textarea class="form-control" name="located"></textarea>
-                                <small id="emailHelp" class="form-text text-muted"><I>Strawberry Ave outside Tesco in Sandy Shores</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>Strawberry Ave außerhalb von Tesco in Sandy Shores</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Was a person arrested?</label>
+                                <label for="channel">Wurde eine Person verhaftet?</label>
                                 <select class="form-control" name="arrested">
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                    <option value="Yes">JA</option>
+                                    <option value="No">NEIN</option>
                                 </select>
-                                <small id="emailHelp" class="form-text text-muted"><I>It's simple...</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>Es ist einfach...</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Persons Information</label>
+                                <label for="channel">Personeninformation</label>
                                 <input type="text" class="form-control" name="person" placeholder="Name, MM/DD/YYYY">
-                                <small id="emailHelp" class="form-text text-muted"><I>Charlie Hodds, 06/28/2018</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>Martin Braun, 06/28/1990</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">What was the person arrested for?</label>
+                                <label for="channel">Wofür wurde die Person verhaftet?</label>
                                 <input type="text" class="form-control" name="arrestedFor">
-                                <small id="emailHelp" class="form-text text-muted"><I>Robbery, Drunk Driving, Traffic Violation, etc...</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>Raub, betrunkenes Fahren, Verkehrsverstöße usw.</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">What did you find on the person?</label>
+                                <label for="channel">Was hast du an der Person gefunden?</label>
                                 <input type="text" class="form-control" name="foundItems">
-                                <small id="emailHelp" class="form-text text-muted"><I>Keys, Id & Money</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>Schlüssel, ID & Geld</I></small>
                             </div>
                             <div class="form-group col-sm-12 col-md-12">
-                                <label for="channel">Say briefly, what happened on this call.</label>
+                                <label for="channel">Sagen Sie kurz, was bei diesem Anruf passiert ist.</label>
                                 <textarea class="form-control" name="whatHappened"></textarea>
-                                <small id="emailHelp" class="form-text text-muted"><I>Really? You need help with this..</I></small>
+                                <small id="emailHelp" class="form-text text-muted"><I>"Ja wirklich?" Sie brauchen Hilfe dabei ..</I></small>
                             </div>
                         </div>
   						<div class="form-group" style="width: 100%;">
-							<input type="submit" name='submitCADReport' class="btn btn-success btn-block" value="Submit Incident Report">
+							<input type="submit" name='submitCADReport' class="btn btn-success btn-block" value="Vorfallbericht einreichen">
 						</div>
 					</form>
 				</div>

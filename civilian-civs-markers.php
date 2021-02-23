@@ -14,7 +14,7 @@ if($permCheck == false OR !isset($_GET['cid'])){
     $civInfo = getCivInfo($_GET['cid']);
 ?>
 
-<title>PDRP Network - Edit Civilian Record: <?php echo $civInfo['name']; ?></title>
+<title>EVOLIFE - Zivilen Datensatz bearbeiten: <?php echo $civInfo['name']; ?></title>
 
 
 <div class="container-fluid" style="margin-top: 25px;">
@@ -23,27 +23,27 @@ if($permCheck == false OR !isset($_GET['cid'])){
         <div class="col-md-8">
             <div class="card custom-card">
                 <div class="card-header">
-                    Edit Civilian Record: <?php echo $civInfo['name']; ?>
+                    Zivilen Datensatz bearbeiten: <?php echo $civInfo['name']; ?>
                 </div>
                 <div class="card-body">
                     <?php
-                        if(isset($_POST['updateAllowed'])) { 
+                        if(isset($_POST['updateAllowed'])) {
 
                             $query    = $con->query( "SELECT * FROM markers" );
                             $markers = '';
 
                             while( $array = mysqli_fetch_assoc($query) ) {
-                    
+
                                 if( isset($_POST['marker-' . $array['acronym']]) ) {
-                            
+
                                     $markers .= $array['acronym'] . ",";
 
                                 }
                             }
-                    
+
                             $query = $con->query("UPDATE civilians SET markers = '{$markers}' WHERE civid = '{$_GET['cid']}'");
                     ?>
-                        <div class="alert alert-success"><b>Civilian Updated</b> The civilian has been updated.</div>
+                        <div class="alert alert-success"><b>Zivilist aktualisiert</b> Der Zivilist wurde aktualisiert.</div>
                     <?php
                         echo '<meta http-equiv="refresh" content="0; url=civilian-civs.php" />';
                         }
@@ -58,7 +58,7 @@ if($permCheck == false OR !isset($_GET['cid'])){
                             }
                         ?><br>
                         <div class="form-group" style="width: 100%;">
-                            <input type="submit" name='updateAllowed' class="btn btn-success btn-block" value="Update Record">
+                            <input type="submit" name='updateAllowed' class="btn btn-success btn-block" value="Datensatz aktualisieren">
                         </div>
                     </form>
                 </div>

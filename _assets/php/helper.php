@@ -91,7 +91,7 @@
 	{
 		global $con;
 
-		$q = $con->query("UPDATE vehicles SET vehicle = '{$name}', vrm = '{$vrm}', status = '{$status}', owner = '{$owner}', insurer = '{$insurer}', markers = '{$markers}' WHERE vehicleid = '{$vehicleid}'");
+		$q = $con->query("UPDATE owned_vehicles SET vehicle = '{$name}', vrm = '{$vrm}', status = '{$status}', owner = '{$owner}', insurer = '{$insurer}', markers = '{$markers}' WHERE vehicleid = '{$vehicleid}'");
 
 		return;
 	}
@@ -120,7 +120,7 @@
 
 		$q = $con->query("SELECT * FROM markers");
 		$markers = array();
-		
+
 		while($a = mysqli_fetch_assoc($q)){
 			$markers[] = $a;
 		}
@@ -197,7 +197,7 @@
 	{
 		global $con;
 
-		$q = $con->query("SELECT * FROM vehicles WHERE vrm = '{$vrm}'");
+		$q = $con->query("SELECT * FROM owned_vehicles WHERE vrm = '{$vrm}'");
 
 		if($q->num_rows > 0){
 			$a = mysqli_fetch_assoc($q);
@@ -205,8 +205,8 @@
 			return $a['vehicleid'];
 		}else{
 			$insurance_number = "QQ" . mt_rand(100000, 999999) . chr(rand(65,90));
-			$q2 = $con->query("INSERT INTO vehicles VALUES(NULL,'Unknown','{$vrm}','','Insured','','{$insurance_number}','','')");
-			$q = $con->query("SELECT * FROM vehicles WHERE vrm = '{$vrm}'");
+			$q2 = $con->query("INSERT INTO owned_vehicles VALUES(NULL,'Unknown','{$vrm}','','Insured','','{$insurance_number}','','')");
+			$q = $con->query("SELECT * FROM owned_vehicles WHERE vrm = '{$vrm}'");
 			$a = mysqli_fetch_assoc($q);
 			return $a['vehicleid'];
 		}
@@ -216,7 +216,7 @@
 	{
 		global $con;
 
-		$q = $con->query("SELECT * FROM vehicles WHERE owner = '{$civid}'");
+		$q = $con->query("SELECT * FROM owned_vehicles WHERE owner = '{$civid}'");
 		$vehicles = array();
 
 		while($a = mysqli_fetch_assoc($q)){
@@ -230,7 +230,7 @@
 	{
 		global $con;
 
-		$q = $con->query("SELECT * FROM vehicles WHERE vehicleid = '{$vehicleid}'");
+		$q = $con->query("SELECT * FROM owned_vehicles WHERE vehicleid = '{$vehicleid}'");
 		$a = mysqli_fetch_assoc($q);
 
 		return $a;
@@ -250,12 +250,12 @@
 	{
 		global $con;
 
-		$q = $con->query("SELECT * FROM vehicles WHERE vrm = '{$vrm}'");
+		$q = $con->query("SELECT * FROM owned_vehicles WHERE vrm = '{$vrm}'");
 		$insurance_number = "QQ" . mt_rand(100000, 999999) . chr(rand(65,90));
 
 		if($q->num_rows == 0){
 			$formatted_vrm = substr($vrm,0,8);
-			$q = $con->query("INSERT INTO vehicles VALUES(NULL,'{$type}','{$formatted_vrm}','{$owner}','{$status}','{$insurer}','{$insurance_number}','','{$markers}')");
+			$q = $con->query("INSERT INTO owned_vehicles VALUES(NULL,'{$type}','{$formatted_vrm}','{$owner}','{$status}','{$insurer}','{$insurance_number}','','{$markers}')");
 
 			newLogEntry($admin,"Has created the vehicle with the VRM of " . $vrm,"Civilain Management");
 		}
@@ -280,7 +280,7 @@
 	{
 		global $con;
 
-		$q = $con->query("SELECT * FROM vehicles WHERE vehicleid = '{$vehicleid}'");
+		$q = $con->query("SELECT * FROM owned_vehicles WHERE vehicleid = '{$vehicleid}'");
 		$a = mysqli_fetch_assoc($q);
 		$allowed = array();
 
@@ -309,7 +309,7 @@
 	{
 		global $con;
 
-		$q = $con->query("SELECT * FROM vehicles");
+		$q = $con->query("SELECT * FROM owned_vehicles");
 		$vehicles = array();
 
 		while($a = mysqli_fetch_assoc($q)){
@@ -862,7 +862,7 @@
 
 		$vehicleInfo = getVehicleInfo($vehicleid);
 
-		$q = $con->query("DELETE FROM vehicles WHERE vehicleid = '{$vehicleid}'");
+		$q = $con->query("DELETE FROM owned_vehicles WHERE vehicleid = '{$vehicleid}'");
 
 		newLogEntry($admin,'Has deleted the Vehicle ' . $vehicleInfo['vrm'],'Civilian Management');
 

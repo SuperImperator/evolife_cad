@@ -18,7 +18,7 @@ if($unitInfo == false){
 ?>
 
 
-<title>PDRP Network - <?php echo $unitInfo['unit']; ?></title>
+<title>EVOLIFE - <?php echo $unitInfo['unit']; ?></title>
 
 
 <div class="container-fluid" style="margin-top: 25px;">
@@ -35,7 +35,7 @@ if($unitInfo == false){
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="alert alert-danger panic" style="text-align: center;">
-					<b>Panic Button Activation by <?php echo $unit['unit']; ?> (<?php echo $unit['collar']; ?>)</b>
+					<b>Panic-Knopf Aktiviert von: <?php echo $unit['unit']; ?> (<?php echo $unit['collar']; ?>)</b>
 				</div>
 			</div>
 		</div>
@@ -48,7 +48,7 @@ if($unitInfo == false){
 			<div class="col-md-1"></div>
 			<div class="col-sm-12 col-md-10 col-lg-10">
 				<div class="alert state<?php echo $unitInfo['status'];?> text-center">
-					<b>Current Status: 10 - <?php echo $unitInfo['status']; ?></b>
+					<b>Aktueller Status: 10 - <?php echo $unitInfo['status']; ?></b>
 				</div>
 			</div>
 			<div class="col-md-1"></div>
@@ -59,7 +59,7 @@ if($unitInfo == false){
 		<div class="col-sm-12 col-md-10 col-lg-7">
 			<div class="card custom-card">
 				<div class="card-header">
-					Unit Actions - <?php echo $unitInfo['unit']; ?>
+					Einheitenaktionen - <?php echo $unitInfo['unit']; ?>
 				</div>
 				<div class="card-body">
 					<?php
@@ -94,19 +94,19 @@ if($unitInfo == false){
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 					<div class="row">
 						<div class="form-group col-sm-12 col-md-6 col-lg-4">
-    	            		<input type="submit" name='makeAvailable' class="btn state2 btn-green btn-block" value="Available">
+    	            		<input type="submit" name='makeAvailable' class="btn state2 btn-green btn-block" value="Verfügbar">
         	   			</div>
         	   			<div class="form-group col-sm-12 col-md-6 col-lg-4">
-    	            		<input type="submit" name='makeUnavailable' class="btn state7 btn-green btn-block" value="Unavailable">
+    	            		<input type="submit" name='makeUnavailable' class="btn state7 btn-green btn-block" value="Nicht verfügbar">
         	   			</div>
         	   			<div class="form-group col-sm-12 col-md-6 col-lg-4">
-        	        		<input type="submit" name='makeInRoute' class="btn state97 btn-green btn-block" value="In Route">
+        	        		<input type="submit" name='makeInRoute' class="btn state97 btn-green btn-block" value="Unterwegs">
         	   			</div>
         	   			<div class="form-group col-sm-12 col-md-6 col-lg-4">
-        	        		<input type="submit" name='makeOnScene' class="btn state23 btn-green btn-block" value="On Scene">
+        	        		<input type="submit" name='makeOnScene' class="btn state23 btn-green btn-block" value="Am Tatort">
         	   			</div>
         	   			<div class="form-group col-sm-12 col-md-6 col-lg-4">
-        	        		<input type="submit" name='makeBusy' class="btn state6 btn-green btn-block" value="Busy">
+        	        		<input type="submit" name='makeBusy' class="btn state6 btn-green btn-block" value="Beschäftigt">
         	   			</div>
         	   			<div class="form-group col-sm-12 col-md-6 col-lg-4">
         	        		<input type="submit" name='makeTransport' class="btn state9 btn-green btn-block" value="Transport">
@@ -138,48 +138,48 @@ if($unitInfo == false){
 					<div class="col-sm-12 col-md-12 col-lg-7">
 					<div class="card custom-card">
 						<div class="card-header">
-							<a data-toggle="modal" data-target="#newRemark"><i class="fa fa-comment-alt"></i></a> 
-							Call Information - <?php echo $call['callid'] . "/" . $call['dateline']; ?>
+							<a data-toggle="modal" data-target="#newRemark"><i class="fa fa-comment-alt"></i></a>
+							Anrufinformationen - <?php echo $call['callid'] . "/" . $call['dateline']; ?>
 						</div>
 						<div class="card-body" style="padding-bottom: 0 !important;">
 							<div class="row">
 								<div class="col-sm-6 col-md-6">
-									<b>Time Created:</b><br><?php echo $call['created']; ?><br>
+									<b>Erstellungszeit:</b><br><?php echo $call['created']; ?><br>
 								</div>
 								<div class="col-sm-6 col-md-6">
-									<b>Call Status:</b><br><i><?php if($call['status'] == 1){ echo "Received"; }elseif($call['status'] == 2){ echo "Not Dispatched"; }elseif($call['status'] == 3){ echo "Dispatched"; } ?></i><br>
+									<b>Anrufstatus:</b><br><i><?php if($call['status'] == 1){ echo "Empfangen"; }elseif($call['status'] == 2){ echo "Nicht versandt"; }elseif($call['status'] == 3){ echo "Versandt"; } ?></i><br>
 								</div>
 							</div>
 							<br>
 							<div class="row">
 								<div class="col-sm-8 col-md-8">
-									<b>Location:</b><br><?php echo $call['location']; ?> <br>
+									<b>Ort:</b><br><?php echo $call['location']; ?> <br>
 								</div>
 								<div class="col-sm-4 col-md-4">
-									<b>Caller:</b><br><?php if($call['caller'] == false){ echo "Anonymous"; }else{ echo "<a href=\"./pnc-check.php?cid=" . $call['caller']['civid'] . "\">" . $call['caller']['name'] . "</a>"; } ?><br>
+									<b>Anrufer:</b><br><?php if($call['caller'] == false){ echo "Anonymous"; }else{ echo "<a href=\"./pnc-check.php?cid=" . $call['caller']['civid'] . "\">" . $call['caller']['name'] . "</a>"; } ?><br>
 								</div>
 							</div>
 							<Br>
 							<div class="row">
 								<div class="col-md-12">
-									<b>Description:</b><br><?php echo $call['description']; ?><br>
+									<b>Beschreibung:</b><br><?php echo $call['description']; ?><br>
 								</div>
 							</div>
 							<br>
 							<div class="row">
 								<div class="col-sm-4 col-md-4 col-lg-4">
-									<b>Importance:</b><br><?php echo $call['police_grade']; ?><br>
+									<b>Bedeutung:</b><br><?php echo $call['police_grade']; ?><br>
 								</div>
 								<div class="col-sm-4 col-md-4 col-lg-4">
-									<b>Priority:</b><br><?php echo $call['rmu_grade']; ?><br>
+									<b>Priorität:</b><br><?php echo $call['rmu_grade']; ?><br>
 								</div>
 								<div class="col-sm-4 col-md-4 col-lg-4">
-									<b>Priority Channel:</b><br><?php echo $call['channel']; ?><br>
+									<b>Prioritätskanal:</b><br><?php echo $call['channel']; ?><br>
 								</div>
 							</div>
 							<br>
 							<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-							<input type="submit" name='clearFromScene' class="btn state11 btn-green btn-block" value="Clear from Scene">
+							<input type="submit" name='clearFromScene' class="btn state11 btn-green btn-block" value="Aus der Szene entfernen">
 						</form>
 							<br>
 						</div>
@@ -190,7 +190,7 @@ if($unitInfo == false){
 					<div class="card custom-card">
 						<div class="card-header">
 							<i class="fa fa-users"></i>
-							Assigned Units
+							Zugeordnete Einheiten
 						</div>
 						<table class="table" id="availableUnits">
 							<tbody>
@@ -218,8 +218,8 @@ if($unitInfo == false){
 		<div class="col-sm-12 col-md-10 offset-md-1 col-lg-3 offset-lg-0">
 			<div class="card custom-card">
 				<div class="card-header">
-					<a data-toggle="modal" data-target="#sendMessage"><i class="fa fa-comment-alt"></i></a> 
-					Recent Messages
+					<a data-toggle="modal" data-target="#sendMessage"><i class="fa fa-comment-alt"></i></a>
+					Aktuelle Nachrichten
 				</div>
 				<table class="table table-responsive-xl" id="refreshMessages">
 					<tbody>
@@ -244,26 +244,26 @@ if($unitInfo == false){
   		<div class="modal-dialog" role="document">
     		<div class="modal-content" style="margin-top: 100px;">
       			<div class="modal-header">
-        			<h5 class="modal-title" id="sendMessage">Send Message</h5>
+        			<h5 class="modal-title" id="sendMessage">Nachricht senden</h5>
       			</div>
       			<div class="modal-body">
       				<div class="container">
         				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 							<div class="row">
   								<div class="form-group col-md-12">
-    								<label for="grade">Enter Message</label>
+    								<label for="grade">Nachricht eingeben</label>
     								<input type="text" class="form-control" name="message">
   								</div>
 								<div class="form-group" style="width: 100%;">
-									<input type="submit" name='sendMessage' class="btn btn-success btn-block" value="Send Message">
+									<input type="submit" name='sendMessage' class="btn btn-success btn-block" value="Nachricht senden">
            						</div>
            					</div>
 						</form>
 						<?php
-							if(isset($_POST['sendMessage'])) { 
+							if(isset($_POST['sendMessage'])) {
 			  	  				sendMessage('DISPATCH', strtoupper($unitInfo['unit']), $_POST['message']);
 							}
-						?> 
+						?>
 					</div>
       			</div>
     		</div>
@@ -274,39 +274,39 @@ if($unitInfo == false){
   		<div class="modal-dialog" role="document">
     		<div class="modal-content" style="margin-top: 100px;">
       			<div class="modal-header">
-        			<h5 class="modal-title" id="newRemark">New Remark</h5>
+        			<h5 class="modal-title" id="newRemark">Neue Bemerkung</h5>
       			</div>
       			<div class="modal-body">
       				<div class="container">
         				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 							<div class="row">
   								<div class="form-group col-md-12">
-    								<label for="grade">Enter Remark</label>
+    								<label for="grade">Bemerkung eingeben</label>
     								<textarea class="form-control" name="remark"></textarea>
   								</div>
 								<div class="form-group" style="width: 100%;">
-									<input type="submit" name='newRemark' class="btn btn-success btn-block" value="Add Remark">
+									<input type="submit" name='newRemark' class="btn btn-success btn-block" value="Bemerkung hinzufügen">
            						</div>
            					</div>
 						</form>
 						<?php
-							if(isset($_POST['newRemark'])) { 
+							if(isset($_POST['newRemark'])) {
 			  	  				newRemark(strtoupper($unitInfo['unit']) . ' (' . $unitInfo['collar'] . ')', $_POST['remark'], $call['callid']);
 							}
-						?> 
+						?>
 					</div>
       			</div>
     		</div>
   		</div>
 	</div>
 
-<script> 
-function refreshDiv() { 
+<script>
+function refreshDiv() {
 
     $('#callinfo').load(document.URL +  ' #callinfo');
     $('#unitStatus').load(document.URL +  ' #unitStatus');
 
-} 
+}
 
 function refreshMessages(){
 	$('#refreshMessages').load(document.URL +  ' #refreshMessages');

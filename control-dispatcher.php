@@ -15,7 +15,7 @@ if($permCheck == false){
 	$availableUnits = getAvailableUnits();
 ?>
 
-<title>PDRP Network - Call Overview</title>
+<title>EVOLIFE - Anruf Übersicht</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
 	<div id="panicSection">
@@ -27,18 +27,18 @@ if($permCheck == false){
 				$unit = mysqli_fetch_assoc($con->query("SELECT * FROM units WHERE status = 0"));
 		?>
 		<?php
-			if(isset($_POST['panicButton' . $unit['unitid']])) { 
+			if(isset($_POST['panicButton' . $unit['unitid']])) {
 			  	createPanicButton($unit['unitid']);
 			}
-		?> 
+		?>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="alert alert-danger state0" style="text-align: center;">
-					<b>Panic Button Activation by <?php echo $unit['unit']; ?> (<?php echo $unit['collar']; ?>)</b>
+					<b>Panic Button Aktivierung durch <?php echo $unit['unit']; ?> (<?php echo $unit['collar']; ?>)</b>
 					<br>
-					<input type="submit" name='panicButton<?php echo $unit['unitid']; ?>' class="btn state0 btn-block" value="Dispatch all Units">
+					<input type="submit" name='panicButton<?php echo $unit['unitid']; ?>' class="btn state0 btn-block" value="Alamiere alle Einheiten">
 				</div>
 			</div>
 		</div>
@@ -52,17 +52,17 @@ if($permCheck == false){
 		<div class="col-md-7">
 			<div class="card custom-card">
 				<div class="card-header">
-					Active Jobs
+					Aktive Jobs
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
    							<th scope="col">Ref.</th>
-   							<th scope="col">Priority Channel</th>
-	     					<th scope="col">Priority</th>
-   							<th scope="col">Description</th>
-   							<th scope="col">Assigned</th>
-   							<th scope="col">Location</th>
+   							<th scope="col">Prioritätskanal</th>
+	     					<th scope="col">Priorität</th>
+   							<th scope="col">Beschreibung</th>
+   							<th scope="col">Zugewiesen</th>
+   							<th scope="col">Ort</th>
    							<th scope="col">Status</th>
  						</tr>
 					</thead>
@@ -79,9 +79,9 @@ if($permCheck == false){
 	      					<td><?php foreach($call['units'] as $unit){ echo $unit['unit'] . ", "; } ?></td>
     						<td><?php echo $call['location']; ?></td>
     						<?php if($call['status'] == 3){ ?>
-    							<th class="text-success">Dispatched</td>
+    							<th class="text-success">Versandt</td>
     						<?php }else{ ?>
-    							<th class="text-danger">Not Dispatched</td>
+    							<th class="text-danger">Nicht versandt</td>
     						<?php } ?>
     					</tr>
     					<?php
@@ -95,19 +95,19 @@ if($permCheck == false){
 		<div class="col-md-3">
 			<div class="card custom-card">
 				<div class="card-header">
-					<a href="#" onclick="toggleDiv('editCAD')"><i class="fa fa-plus"></i></a> 
-					Attach Unit to Report
+					<a href="#" onclick="toggleDiv('editCAD')"><i class="fa fa-plus"></i></a>
+					Befestigen Sie die Einheit am Bericht
 				</div>
 				<div class="card-body" id="editCAD" style="display: none;">
 					<?php
-					if(isset($_POST['updateCall'])) { 
+					if(isset($_POST['updateCall'])) {
 			  	  		attachUnitToCall($_POST['cad'], $_POST['unit']);
 			  	  		updateCallStatus($_POST['cad'], 3);
 					}
 					?>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 						<div class="form-group col-md-12">
-    						<label for="channel">Select Report</label>
+    						<label for="channel">Wählen Sie Bericht</label>
     						<div id="cads">
     							<select class="form-control" name="cad">
     								<?php
@@ -123,7 +123,7 @@ if($permCheck == false){
     						</div>
   						</div>
   						<div class="form-group col-md-12">
-    						<label for="channel">Unit</label>
+    						<label for="channel">Einheit</label>
     						<div id="units">
     							<select class="form-control" name="unit">
     								<?php
@@ -137,7 +137,7 @@ if($permCheck == false){
     						</div>
   						</div>
   						<div class="form-group col-md-12">
-  							<input type="submit" name='updateCall' class="btn btn-success btn-block" value="Attach Unit">
+  							<input type="submit" name='updateCall' class="btn btn-success btn-block" value="Einheit Anfügen">
   						</div>
   					</form>
 				</div>
@@ -145,7 +145,7 @@ if($permCheck == false){
 			<br>
 			<div class="card custom-card">
 				<div class="card-header">
-					Available Units
+					Verfügbare Einheiten
 				</div>
 				<table class="table table-responsive-xl" id="availableUnits">
 					<tbody>
@@ -171,22 +171,22 @@ if($permCheck == false){
   		<div class="modal-dialog" role="document">
     		<div class="modal-content" style="margin-top: 100px;">
       			<div class="modal-header">
-        			<h5 class="modal-title" id="panicButton">Dispatch Panic Button</h5>
+        			<h5 class="modal-title" id="panicButton">Panik-Taste</h5>
       			</div>
       			<div class="modal-body">
       				<div class="container">
         				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 							<div class="row">
 								<div class="form-group" style="width: 100%;">
-									<input type="submit" name='dispatchPanic<?php echo $unit['unitid']; ?>' class="btn btn-success btn-block" value="Dispatch All Units">
+									<input type="submit" name='dispatchPanic<?php echo $unit['unitid']; ?>' class="btn btn-success btn-block" value="Alamiere alle Einheiten">
            						</div>
            					</div>
 						</form>
 						<?php
-							if(isset($_POST['dispatchPanic'.$unit['unitid']])) { 
+							if(isset($_POST['dispatchPanic'.$unit['unitid']])) {
 			  	  				createPanicButton($unit['unitid']);
 							}
-						?> 
+						?>
 					</div>
       			</div>
     		</div>
@@ -196,12 +196,12 @@ if($permCheck == false){
 	}
 	?>
 
-<script> 
-function refreshDiv() { 
+<script>
+function refreshDiv() {
 
     $('#refreshDiv').load(document.URL +  ' #refreshDiv');
 
-} 
+}
 
 function availableUnits(){
 	$('#availableUnits').load(document.URL +  ' #availableUnits');
@@ -226,6 +226,6 @@ window.setInterval(panicSection, 3000);
 window.setInterval(stuff, 5000);
 
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
+    $('[data-toggle="tooltip"]').tooltip();
 });
 </script>

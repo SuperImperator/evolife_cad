@@ -19,7 +19,7 @@ if($permCheck == false OR !isset($_GET['gid']) OR $_GET['gid'] == 14){
     $group = getGroupInfo($_GET['gid']);
 ?>
 
-<title>PDRP Network - Edit Usergroup: <?php echo $group['name']; ?></title>
+<title>EVOLIFE - Benutzergruppen bearbeiten: <?php echo $group['name']; ?></title>
 
 <div class="container-fluid" style="margin-top: 25px;">
     <div class="row">
@@ -27,7 +27,7 @@ if($permCheck == false OR !isset($_GET['gid']) OR $_GET['gid'] == 14){
         <div class="col-md-8">
             <div class="card custom-card">
                 <div class="card-header">
-                    Edit Usergroup: <?php echo $group['name']; ?>
+                    Benutzergruppen bearbeiten: <?php echo $group['name']; ?>
                 </div>
                 <div class="card-body">
                     <?php
@@ -36,9 +36,9 @@ if($permCheck == false OR !isset($_GET['gid']) OR $_GET['gid'] == 14){
                             $perms = 0;
 
                             foreach($query as $array){
-                    
+
                                 if( isset($_POST['perm-' . $array['perm']]) ) {
-                            
+
                                     $perms = $perms + $array['perm'];
 
                                 }
@@ -53,7 +53,7 @@ if($permCheck == false OR !isset($_GET['gid']) OR $_GET['gid'] == 14){
                             <input type="text" class="form-control" name="name" value="<?php echo $group['name']; ?>">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Usergroup Permissions</label><br>
+                            <label for="channel">Benutzergruppen Berechtigung</label><br>
                             <?php
                             $perms = getPerms();
 
@@ -65,7 +65,7 @@ if($permCheck == false OR !isset($_GET['gid']) OR $_GET['gid'] == 14){
                             ?>
                         </div>
                         <div class="form-group col-md-12">
-                            <input type="submit" name='updateGroup' class="btn btn-success btn-block" value="Update Group">
+                            <input type="submit" name='updateGroup' class="btn btn-success btn-block" value="Gruppe Aktualiesieren">
                         </div>
                     </form>
                 </div>

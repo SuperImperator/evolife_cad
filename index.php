@@ -11,19 +11,19 @@ if($permCheck == false){
 }
 ?>
 
-<title>PDRP Network - Homepage</title>
+<title>EVOLIFE - Homepage</title>
 
 <div class="container" style="margin-top: 25px;">
 	<div class="row">
 		<div class="col-sm-12 col-md-12 col-lg-6">
 			<div class="card custom-card">
-				<div class="card-header">Recent Log Reports (Recent 5)</div>
+				<div class="card-header">Letzte Protokollberichte (Letzten 5)</div>
 				<table class="table" id="refreshDiv">
 					<thead class="thead-light">
 						<tr>
    							<th scope="col">Ref.</th>
 	     					<th scope="col">Log Ref.</th>
-   							<th scope="col">Submitted</th>
+   							<th scope="col">Eingereicht</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -55,15 +55,15 @@ if($permCheck == false){
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card custom-card">
-				<div class="card-header">Be on the lookout (Vehicle of Interest)</div>
+				<div class="card-header">Seien Sie auf der Hut (Fahrzeug von Interesse)</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
 						<tr>
-   							<th scope="col" style="width: 16.666667%;">Model</th>
-	     					<th scope="col" style="width: 9%;">License Plate</th>
-   							<th scope="col" style="width: 8%;">Desccription</th>
-   							<th scope="col" style="width: 33.333333%;">Reason</th>
-   							<th scope="col" style="width: 33.333333%;">Notes</th>
+   							<th scope="col" style="width: 16.666667%;">Modell</th>
+	     					<th scope="col" style="width: 9%;">Kennzeichen</th>
+   							<th scope="col" style="width: 8%;">Beschreibung</th>
+   							<th scope="col" style="width: 33.333333%;">Grund</th>
+   							<th scope="col" style="width: 33.333333%;">Anmerkungen</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -98,15 +98,15 @@ if($permCheck == false){
 			</div>
 			<br>
 			<div class="card custom-card">
-				<div class="card-header">Be on the lookout (Person of Interest)</div>
+				<div class="card-header">Seien Sie auf der Hut (Person von Interesse)</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
 						<tr>
    							<th scope="col" style="width: 16.666667%;">Name</th>
-	     					<th scope="col" style="width: 9%;">Address</th>
-   							<th scope="col" style="width: 8%;">Description</th>
-   							<th scope="col" style="width: 33.333333%;">Reason</th>
-   							<th scope="col" style="width: 33.333333%;">Notes</th>
+	     					<th scope="col" style="width: 9%;">Addresse</th>
+   							<th scope="col" style="width: 8%;">Beschreibung</th>
+   							<th scope="col" style="width: 33.333333%;">Grund</th>
+   							<th scope="col" style="width: 33.333333%;">Annmerkungen</th>
 						</tr>
 					</thead>
 					<tbody>

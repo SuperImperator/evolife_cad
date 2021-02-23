@@ -17,7 +17,7 @@ if($permCheck == false OR !isset($_GET['uid'])){
 $messages = getMessagesBetween($UserArray['userid'],$_GET['uid']);
 ?>
 
-<title>PDRP Network - Messages</title>
+<title>EVOLIFE - Nachrichten</title>
 
 <div class="container" style="margin-top: 25px;">
 	<div class="row">
@@ -42,21 +42,21 @@ $messages = getMessagesBetween($UserArray['userid'],$_GET['uid']);
 			<div class="card custom-card">
 				<div class="card-body">
 					<?php
-            		if(isset($_POST['sendMessage'])) { 
+            		if(isset($_POST['sendMessage'])) {
             			$message = $con->escape_string($_POST['message']);
               			sendMessage($_GET['uid'],$UserArray['userid'],$message);
           			?>
-                    <div class="alert alert-success"><b>Message Sent</b> The message has been sent.</div>
+                    <div class="alert alert-success"><b>Nachricht gesendet!</b> Die Nachricht wurde versendet.</div>
           			<?php
             		}
           			?>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?uid=<?php echo $_GET['uid']; ?>" method="post">
 						<div class="form-group col-md-12">
-							<label>Message</label><br>
+							<label>Nachricht</label><br>
 							<textarea class="form-control" name="message"></textarea>
 						</div>
 						<div class="form-group col-md-12">
-        	                <input type="submit" name='sendMessage' class="btn btn-success btn-block" value="Send Message">
+        	                <input type="submit" name='sendMessage' class="btn btn-success btn-block" value="Nachricht senden">
         	            </div>
         	        </form>
 				</div>
@@ -65,7 +65,7 @@ $messages = getMessagesBetween($UserArray['userid'],$_GET['uid']);
 	</div>
 </div>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 <?php
 if(isset($_GET['mid'])){
 ?>

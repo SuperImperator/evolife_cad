@@ -13,14 +13,14 @@ $reportInfo = getReportInfo($_GET['rid']);
 ?>
 
 
-<title>PDRP Network - View Report</title>
+<title>EVOLIFE - Zeige Bericht</title>
 
 <div class="container" style="margin-top: 25px;">
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<div class="card">
-				<div class="card-header"><a class="text-dark" href="./intel-cad-reports.php"><i class="fa fa-undo"></i></a> View Incident Report: <?php echo $reportInfo['cad']; ?></div>
+				<div class="card-header"><a class="text-dark" href="./intel-cad-reports.php"><i class="fa fa-undo"></i></a> Ereignisbericht anzeigen: <?php echo $reportInfo['cad']; ?></div>
 				<div class="card-body">
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="row">
@@ -29,43 +29,43 @@ $reportInfo = getReportInfo($_GET['rid']);
     	       					<input type="text" class="form-control" name="username" value="<?php echo getUserInfo($reportInfo['user'])['first_name'] . " " . getUserInfo($reportInfo['user'])['surname']; ?>" disabled>
   				  	       	</div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Username</label>
+                                <label for="channel">Benutzername</label>
                                 <input type="text" class="form-control" name="collar" value="<?php echo getUserInfo($reportInfo['user'])['collar']; ?>" disabled>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">What type of incident is this report about?</label>
+                                <label for="channel">Um welche Art von Vorfall handelt es sich in diesem Bericht?</label>
                                 <input type="text" class="form-control" name="incident" value="<?php echo $reportInfo['incident']; ?>" disabled>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">What was the Call Reference?</label>
+                                <label for="channel">Was war die Anrufreferenz?</label>
                                 <input type="text" class="form-control" name="cad" value="<?php echo $reportInfo['cad']; ?>" disabled>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Who else was on the incident?</label>
+                                <label for="channel">Wer war noch an dem Vorfall beteiligt?</label>
                                 <textarea class="form-control" name="otherUnits" disabled><?php echo $reportInfo['otherUnits']; ?></textarea>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Where did you locate the person or vehicle?</label>
+                                <label for="channel">Wo haben Sie die Person oder das Fahrzeug gefunden?</label>
                                 <textarea class="form-control" name="located" disabled><?php echo $reportInfo['located']; ?></textarea>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Was a person arrested?</label>
+                                <label for="channel">Wurde eine Person verhaftet?</label>
                                 <input type="text" class="form-control" name="arrestedFor" value="<?php echo $reportInfo['arrested']; ?>" disabled>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">Persons Information</label>
+                                <label for="channel">Personeninformation</label>
                                 <input type="text" class="form-control" name="person" value="<?php echo $reportInfo['person']; ?>" disabled>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">What was the person arrested for?</label>
+                                <label for="channel">Wofür wurde die Person verhaftet?</label>
                                 <input type="text" class="form-control" name="arrestedFor" value="<?php echo $reportInfo['arrestedFor']; ?>" disabled>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="channel">What did you find on the person?</label>
+                                <label for="channel">Was hast du an der Person gefunden?</label>
                                 <input type="text" class="form-control" name="foundItems" value="<?php echo $reportInfo['foundItems']; ?>" disabled>
                             </div>
                             <div class="form-group col-sm-12 col-md-12">
-                                <label for="channel">Say briefly, what happened on this call.</label>
+                                <label for="channel">Sagen Sie kurz, was bei diesem Anruf passiert ist.</label>
                                 <textarea class="form-control" name="whatHappened" disabled><?php echo $reportInfo['whatHappened']; ?></textarea>
                             </div>
                         </div>

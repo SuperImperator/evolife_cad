@@ -14,7 +14,7 @@ if($permCheck == false){
     $groups = getUserGroups();
 ?>
 
-<title>PDRP Network - Manage Usergroups</title>
+<title>EVOLIFE - Benutzergruppen Verwalten</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
     <div class="row">
@@ -22,14 +22,14 @@ if($permCheck == false){
         <div class="col-md-8">
             <div class="card custom-card">
                 <div class="card-header">
-                    Admin Logs
+                    Admin Protokoll
                 </div>
                 <table class="table table-responsive-xl" id="refreshDiv">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">Reference</th>
+                            <th scope="col">Referenz</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Aktion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +39,7 @@ if($permCheck == false){
                         <tr>
                             <th scope="row"><?php echo $group['id']; ?></th>
                             <th scope="row"><?php echo $group['name']; ?></th>
-                            <td><a href="admin-groups-edit.php?gid=<?php echo $group['id']; ?>">Edit Group</a></td>
+                            <td><a href="admin-groups-edit.php?gid=<?php echo $group['id']; ?>">Gruppe Bearbeiten</a></td>
                         </tr>
                         <?php
                             }

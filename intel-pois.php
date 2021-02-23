@@ -14,24 +14,24 @@ if($permCheck == false){
 	$pois = getPois();
 ?>
 
-<title>PDRP Network - Manage BOLO(Persons of Interest)</title>
+<title>EVOLIFE - BOLO verwalten (Personen von Interesse)</title>
 
 <div class="container-fluid" style="margin-top: 25px;">
 	<div class="row">
 		<div class="col-md-9">
 			<div class="card custom-card">
 				<div class="card-header">
-					Be On The Lookout (Current Persons of Interest)
+					Seien Sie auf der Hut (aktuelle Personen von Interesse)
 				</div>
 				<table class="table table-responsive-xl" id="refreshDiv">
 					<thead class="thead-light">
    						<tr>
-   							<th scope="col">Reference</th>
+   							<th scope="col">Referenz</th>
    							<th scope="col">Name</th>
-	     					<th scope="col">Address</th>
-   							<th scope="col">Description</th>
-   							<th scope="col">Reason</th>
-   							<th scope="col">Notes</th>
+	     					<th scope="col">Adresse</th>
+   							<th scope="col">Beschreibung</th>
+   							<th scope="col">Grund</th>
+   							<th scope="col">Annmerkungen</th>
  						</tr>
 					</thead>
 	  				<tbody>
@@ -58,14 +58,14 @@ if($permCheck == false){
 		<div class="col-md-3">
 			<div class="card custom-card">
 				<div class="card-header">
-					Add New BOLO
+					Neus BOLO hinzufügen
 				</div>
 				<div class="card-body">
 					<?php
-						if(isset($_POST['createPoi'])) { 
+						if(isset($_POST['createPoi'])) {
 			  	  			createPoi($_POST['civilian'],$_POST['image'],$_POST['reason'],$_POST['notes']);
                     ?>
-                    <div class="alert alert-success"><b>BOLO Created</b> This BOLO has been created and is ready for use.</div>
+                    <div class="alert alert-success"><b>BOLO Erstellt</b> Dieser BOLO wurde erstellt und ist einsatzbereit.</div>
                     <?php
 						}
 					?>
@@ -85,19 +85,19 @@ if($permCheck == false){
                             </select>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Description</label>
+                            <label for="channel">Beschreibung</label>
                             <input type="text" class="form-control" name="image" required>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Reason</label>
+                            <label for="channel">Grund</label>
                             <input type="text" class="form-control" name="reason" required>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="channel">Notes</label>
+                            <label for="channel">Annmerkungen</label>
                             <input type="text" class="form-control" name="notes" required>
                         </div>
   						<div class="form-group col-md-12">
-							<input type="submit" name='createPoi' class="btn btn-success btn-block" value="Create BOLO">
+							<input type="submit" name='createPoi' class="btn btn-success btn-block" value="BOLO erstellen">
 						</div>
 					</form>
 				</div>
@@ -105,12 +105,12 @@ if($permCheck == false){
 		</div>
 	</div>
 
-<script> 
-function refreshDiv() { 
+<script>
+function refreshDiv() {
 
     $('#refreshDiv').load(document.URL +  ' #refreshDiv');
 
-} 
+}
 
 function availableUnits(){
 	$('#availableUnits').load(document.URL +  ' #availableUnits');
