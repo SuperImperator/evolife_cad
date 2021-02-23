@@ -91,7 +91,7 @@
 	{
 		global $con;
 
-		$q = $con->query("UPDATE owned_vehicles SET vehicle = '{$name}', vrm = '{$vrm}', status = '{$status}', owner = '{$owner}', insurer = '{$insurer}', markers = '{$markers}' WHERE vehicleid = '{$vehicleid}'");
+		$q = $con->query("UPDATE owned_vehicles SET vehicle = '{$name}', plate = '{$vrm}', status = '{$status}', owner = '{$owner}', insurer = '{$insurer}', markers = '{$markers}' WHERE vehicleid = '{$vehicleid}'");
 
 		return;
 	}
@@ -197,7 +197,7 @@
 	{
 		global $con;
 
-		$q = $con->query("SELECT * FROM owned_vehicles WHERE vrm = '{$vrm}'");
+		$q = $con->query("SELECT * FROM owned_vehicles WHERE plate = '{$vrm}'");
 
 		if($q->num_rows > 0){
 			$a = mysqli_fetch_assoc($q);
@@ -206,7 +206,7 @@
 		}else{
 			$insurance_number = "QQ" . mt_rand(100000, 999999) . chr(rand(65,90));
 			$q2 = $con->query("INSERT INTO owned_vehicles VALUES(NULL,'Unknown','{$vrm}','','Insured','','{$insurance_number}','','')");
-			$q = $con->query("SELECT * FROM owned_vehicles WHERE vrm = '{$vrm}'");
+			$q = $con->query("SELECT * FROM owned_vehicles WHERE plate = '{$vrm}'");
 			$a = mysqli_fetch_assoc($q);
 			return $a['vehicleid'];
 		}
@@ -250,7 +250,7 @@
 	{
 		global $con;
 
-		$q = $con->query("SELECT * FROM owned_vehicles WHERE vrm = '{$vrm}'");
+		$q = $con->query("SELECT * FROM owned_vehicles WHERE plate = '{$vrm}'");
 		$insurance_number = "QQ" . mt_rand(100000, 999999) . chr(rand(65,90));
 
 		if($q->num_rows == 0){

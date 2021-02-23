@@ -31,7 +31,7 @@ if($permCheck == false){
 					?>
 					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 						<div class="form-group col-md-12">
-    						<label for="channel">Kennteichen</label>
+    						<label for="channel">Kennzeichen</label>
     						<input type="text" class="form-control" name="vrm" required>
                         </div>
   						<div class="form-group" style="width: 100%;">
